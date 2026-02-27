@@ -1,3 +1,11 @@
+# Stage 0: Composer deps (for Ziggy - needed during Vite build)
+FROM composer:2 AS composer
+
+WORKDIR /app
+
+COPY composer.json composer.lock ./
+RUN composer install --no-dev --no-scripts --ignore-platform-reqs
+
 # Stage 1: Build frontend assets (Vite + Vue)
 FROM node:20-alpine AS frontend
 
@@ -7,6 +15,9 @@ COPY package.json package-lock.json ./
 RUN npm install --no-audit --legacy-peer-deps
 
 COPY . .
+# Copy Ziggy from composer stage (app.js imports from vendor/tightenco/ziggy)
+COPY --from=composer /app/vendor ./vendor
+
 RUN npm run build
 
 # Stage 2: PHP app with nginx
