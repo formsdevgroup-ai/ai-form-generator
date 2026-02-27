@@ -36,4 +36,21 @@ return [
     */
 
     'request_timeout' => env('GEMINI_REQUEST_TIMEOUT', 30),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Fallback Models (when rate limits are reached)
+    |--------------------------------------------------------------------------
+    |
+    | When a model returns 429 RESOURCE_EXHAUSTED, the next model in this list
+    | will be tried. Order: fastest/lightest first, then more capable models.
+    | Free tier models: gemini-2.5-flash, gemini-2.0-flash, gemini-2.5-pro, etc.
+    |
+    */
+    'fallback_models' => array_filter(array_map('trim', explode(',', env('GEMINI_FALLBACK_MODELS', '')))) ?: [
+        'gemini-2.5-flash',      // Default: speed + cost-efficient
+        'gemini-2.0-flash',      // Legacy, often has separate quota
+        'gemini-2.5-pro',       // More capable, different rate limits
+        'gemini-2.0-flash-exp',  // Experimental
+    ],
 ];

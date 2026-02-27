@@ -32,7 +32,7 @@ defineProps({
                     <img
                         src="/images/MainLogo.png"
                         alt="AI Forms Generator"
-                        class="h-12 w-auto sm:h-14"
+                        class="h-10 w-auto sm:h-12"
                     />
                 </Link>
 
