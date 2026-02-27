@@ -1,4 +1,5 @@
 <template>
+    <AuthenticatedLayout>
     <div class="max-w-4xl mx-auto p-8 space-y-8">
         <div class="bg-white shadow-lg rounded-xl p-8">
             <h2 class="text-2xl font-bold mb-6 text-gray-800">AI Code Generator</h2>
@@ -108,9 +109,11 @@
             </div>
         </div>
     </div>
+    </AuthenticatedLayout>
 </template>
 
 <script setup>
+import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { ref, onMounted } from 'vue';
 import axios from 'axios';
 

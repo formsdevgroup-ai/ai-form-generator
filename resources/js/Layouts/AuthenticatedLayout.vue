@@ -42,9 +42,18 @@ const showingNavigationDropdown = ref(false);
                             </div>
                         </div>
 
-                        <div class="hidden sm:ms-6 sm:flex sm:items-center">
+                        <div class="hidden sm:ms-6 sm:flex sm:items-center sm:gap-3">
+                            <!-- Log Out (visible) -->
+                            <Link
+                                :href="route('logout')"
+                                method="post"
+                                as="button"
+                                class="rounded-md px-3 py-2 text-sm font-medium text-gray-600 transition duration-150 ease-in-out hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
+                            >
+                                Log out
+                            </Link>
                             <!-- Settings Dropdown -->
-                            <div class="relative ms-3">
+                            <div class="relative">
                                 <Dropdown align="right" width="48">
                                     <template #trigger>
                                         <span class="inline-flex rounded-md">
@@ -146,6 +155,14 @@ const showingNavigationDropdown = ref(false);
                         >
                             Dashboard
                         </ResponsiveNavLink>
+                        <Link
+                            :href="route('logout')"
+                            method="post"
+                            as="button"
+                            class="block w-full ps-3 pe-4 py-2 border-l-4 border-transparent text-start text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out"
+                        >
+                            Log out
+                        </Link>
                     </div>
 
                     <!-- Responsive Settings Options -->

@@ -126,3 +126,4 @@ php artisan queue:work --tries=3
 | Assets not loading | Set `ASSET_URL` to your Render URL |
 | Mixed content (HTTP/HTTPS) | `AppServiceProvider` already forces HTTPS in production |
 | Migration fails | Ensure `DATABASE_URL` and `DB_CONNECTION=pgsql` are set |
+
