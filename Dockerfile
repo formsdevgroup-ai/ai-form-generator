@@ -36,6 +36,8 @@ ENV WEBROOT /var/www/html/public
 ENV PHP_ERRORS_STDERR 1
 ENV RUN_SCRIPTS 1
 ENV REAL_IP_HEADER 1
+# Route all requests (e.g. /login, /register) to Laravel's index.php
+ENV PHP_CATCHALL 1
 
 # Laravel config
 ENV APP_ENV production
